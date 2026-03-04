@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Habit Bloom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="header">
+    <h1 id="greeting"></h1>
+    <p id="date"></p>
+  </header>
+
+  <nav class="nav">
+    <button onclick="showScreen('home')">🌿<br>Garden</button>
+    <button onclick="showScreen('progress')">📊<br>Progress</button>
+    <button onclick="showScreen('settings')">⚙️<br>Settings</button>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home" class="screen">
+    <p class="tagline">🌱 Ready to grow today?</p>
+
+    <div class="add-box">
+      <input id="habitInput" placeholder="Enter a habit">
+      <button onclick="addHabit()">Add Habit</button>
+    </div>
+
+    <div id="habitGrid" class="habit-grid"></div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section id="progress" class="screen hidden">
+    <h2>📊 Habit Progress Overview</h2>
+
+    <div class="stats">
+      <div class="stat-card">📋<br>Total Habits<br><b id="totalHabits">0</b></div>
+      <div class="stat-card">🔥<br>Total Streak<br><b id="totalStreak">0</b></div>
+      <div class="stat-card">🌳<br>Fully Grown<br><b id="grownCount">0</b></div>
+    </div>
+
+    <h3>🌱 Streak Progress of All Habits</h3>
+    <canvas id="habitBarChart" width="320" height="220"></canvas>
+
+    <p id="encourage"></p>
+  </section>
+
+  <!-- SETTINGS -->
+  <section id="settings" class="screen hidden">
+    <h2>⚙️ Settings</h2>
+
+    <div class="settings-card">
+      <h3>👤 Personalisation</h3>
+      <input id="nameInput" placeholder="Enter your name">
+      <button onclick="saveName()">Save Name</button>
+    </div>
+
+    <div class="settings-card">
+      <h3>🌙 Appearance</h3>
+      <button onclick="toggleTheme()">Toggle Theme</button>
+    </div>
+
+    <div class="settings-card">
+      <h3>⏰ Notifications</h3>
+      <input type="time" id="notifyTime">
+      <button onclick="saveNotify()">Save Time</button>
+    </div>
+
+    <div class="settings-card">
+      <h3>🗑️ Delete Habits</h3>
+      <div id="deleteList"></div>
+    </div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
